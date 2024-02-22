@@ -50,7 +50,7 @@ def create_account():
     user_created = insert_user_account(username, email, password)
 
     if user_created:
-        return jsonify({"message": "Account created successfully"})
+        return jsonify({"message": "Account created successful"})
     else:
         return jsonify({"error": "Error creating account"}), 500
 
@@ -86,3 +86,6 @@ def check_user_credentials(username, password):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+#test
+    
