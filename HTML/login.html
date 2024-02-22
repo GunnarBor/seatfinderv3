@@ -26,12 +26,13 @@
 
   <h3 class="sub-header">Welcome back!<br> Enter login info below</h3>
 
-  <input class="input" type="string" placeholder="username" required>
+  <div form="login">
+  <input class="input" id="username" type="text" placeholder="username" required>
   <br></br>
-  <input class="input" type="string" placeholder="password" required>
+  <input class="input" id="password" type="password" placeholder="password" required>
   <br></br>
-  <button class="buttonbasic"> Login </button>
-
+  <button type="submit" class="buttonbasic"> Login </button>
+  </div>
 
   <!-- Footer -->
 
@@ -40,6 +41,6 @@
 </div>
 
 
-<script src="script.js"></script>
+<script src="../JS/code.js"></script>
 </body>
 </html>
