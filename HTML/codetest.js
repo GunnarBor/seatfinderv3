@@ -3,7 +3,10 @@ document.getElementById("login").addEventListener("submit", function(event) {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-    fetch('/login', {
+
+
+
+fetch('/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -15,23 +18,23 @@ document.getElementById("login").addEventListener("submit", function(event) {
     })
     .then(response => {
         if (response.ok) {
-            // If you expect a redirect to be handled by the server
-            window.location.href = "/userhome.html";
-            // If you expect a JSON response with a success message
-            // return response.json();
+            // Check if user is admin
+            return response.json();
         } else {
-            // If there's an error, you can handle it here
             return response.json().then(data => {
                 throw new Error(data.error);
             });
         }
     })
     .then(data => {
-        // Handle the response data if you expect a JSON success message
-        console.log(data.message);
+        // Check if user is admin
+        if (data && data.isAdmin) {
+            window.location.href = "/adminhome.html";
+        } else {
+            window.location.href = "/userhome.html";
+        }
     })
     .catch(error => {
-        // Handle any errors here
         console.error('Error during login:', error.message);
     });
 });
