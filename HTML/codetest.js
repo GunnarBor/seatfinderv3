@@ -16,7 +16,7 @@ document.getElementById("login").addEventListener("submit", function(event) {
     .then(response => {
         if (response.ok) {
             // If you expect a redirect to be handled by the server
-            window.location.href = response.url;
+            window.location.href = "/userhome.html";
             // If you expect a JSON response with a success message
             // return response.json();
         } else {
