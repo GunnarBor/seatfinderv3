@@ -17,14 +17,14 @@ def login():
     
     # The POST request handling
     data = request.get_json()
-    user_id = data.get('user_id')
+    username = data.get('username')
     password = data.get('password')
 
-    if not user_id or not password:
-        return jsonify({'error': 'Missing user_id or password'}), 400
+    if not username or not password:
+        return jsonify({'error': 'Missing username or password'}), 400
 
-    if check_credentials(user_id, password):
-        session['userID'] = user_id  # Set session variable
+    if check_credentials(username, password):
+        session['username'] = username  # Set session variable
         return redirect(url_for('static', filename='home.html'))
     else:
         return jsonify({'error': 'Invalid credentials'}), 401
@@ -32,11 +32,11 @@ def login():
 def connect_to_database():
     return pymysql.connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD, database=DB_NAME)
 
-def check_credentials(user_id, password):
+def check_credentials(username, password):
     conn = connect_to_database()
     cursor = conn.cursor()
-    query = "SELECT * FROM users WHERE user_id = %s AND password = %s"
-    cursor.execute(query, (user_id, password))
+    query = "SELECT * FROM users WHERE username = %s AND password = %s"
+    cursor.execute(query, (username, password))
     user = cursor.fetchone()
     conn.close()
     return user
