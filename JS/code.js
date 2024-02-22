@@ -1,4 +1,4 @@
-document.getElementById("login").addEventListener("submit", function(event) {
+document.getElementById("login").addEventListener('submit', function(event) {
     event.preventDefault();
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
@@ -16,14 +16,14 @@ document.getElementById("login").addEventListener("submit", function(event) {
       alert("Incorrect username or password. Please try again.");}});
 
 
-document.getElementById("findClass").addEventListener("click", function() {
-    var content = document.getElementById("classes");
-
-    if (content.style.display === "none") {
-        content.style.display = "block";}
-
-    else {
-        content.style.display = "none";}});
+      document.getElementById("findClass").addEventListener("click", function() {
+        var content = document.getElementById("classes");
+        if (content.style.display === "none") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    });
 
 
 
