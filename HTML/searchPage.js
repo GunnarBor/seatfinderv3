@@ -35,12 +35,14 @@ function searchDatabase(query) {
 
 // Function to display search results
 function displaySearchResults(results) {
+    console.log('Results received:', results); // Add this line for debugging
+
     const resultsDiv = document.getElementById('searchResults');
-    if (results.length > 0) {
+    if (Array.isArray(results) && results.length > 0) {
         results.forEach(function(result) {
             const p = document.createElement('p');
-            // Only display the class_name property of the result object
-            p.textContent = result.class_name; // Assuming 'class_name' is the correct property name
+            // Assuming index 1 is the class_name and index 4 is the seats available
+            p.textContent = `Class: ${result[1]}, Seats Available: ${result[4]}`;
             resultsDiv.appendChild(p);
         });
     } else {
