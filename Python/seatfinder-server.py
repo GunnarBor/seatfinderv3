@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, session, redirect, url_for
+from flask import Flask, request, jsonify, session,send_file, redirect, url_for
 import pymysql
 import pymysql.cursors
 
@@ -15,6 +15,9 @@ DB_NAME = 'spring2024Cteam9'
 def connect_to_database():
     return pymysql.connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD, database=DB_NAME)
 
+@app.route('/')
+def main():
+    return send_file('..\HTML\home.html')
 
 def check_credentials(username, password):
     conn = connect_to_database()
