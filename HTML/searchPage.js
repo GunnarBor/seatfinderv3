@@ -39,10 +39,12 @@ function displaySearchResults(results) {
     if (results.length > 0) {
         results.forEach(function(result) {
             const p = document.createElement('p');
-            p.textContent = result;
+            // Only display the class_name property of the result object
+            p.textContent = result.class_name; // Assuming 'class_name' is the correct property name
             resultsDiv.appendChild(p);
         });
     } else {
         resultsDiv.innerHTML = '<p>No results found</p>';
     }
 }
+
