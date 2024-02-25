@@ -18,11 +18,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Placeholder for a function that searches your database or data structure
+// Function to perform AJAX request to Flask backend
 function searchDatabase(query) {
-    // Implement search logic here
-    // For demonstration, return an array of results
-    return ["Result 1", "Result 2", "Result 3"]; // Example results
+    fetch(`/search?query=${encodeURIComponent(query)}`)
+    .then(response => response.json())
+    .then(data => {
+        // Display the results
+        displaySearchResults(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('searchResults').innerHTML = '<p>Error fetching results</p>';
+    });
 }
+
 
 // Function to display search results
 function displaySearchResults(results) {
