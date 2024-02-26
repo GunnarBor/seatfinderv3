@@ -130,6 +130,21 @@ def create_account():
         return jsonify({"message": "Account created successfully"}), 200
     else:
         return jsonify({"error": "Failed to create account"}), 500
+    
+@app.route('/deleteUser/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    try:
+        conn = connect_to_database()
+        cursor = conn.cursor()
+        # Assuming your users table has a column named 'id' as the primary key
+        sql = "DELETE FROM users WHERE user_id = %s"
+        cursor.execute(sql, (user_id,))
+        conn.commit()
+        conn.close()
+        return jsonify({'message': 'User deleted successfully'}), 200
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({'error': 'Failed to delete user'}), 500
 
 
 if __name__ == '__main__':
