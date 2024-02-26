@@ -9,12 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Get the search input
         const searchTerm = document.querySelector('#searchUser input[type="text"]').value;
 
-        // Placeholder for search logic - replace this with actual search logic
-        searchUserDatabase(searchTerm); // Implement this function based on your application
+        searchUserDatabase(searchTerm); 
     });
 });
 
-// Placeholder for a function that searches your database or data structure
 // Function to perform AJAX request to Flask backend for user search
 function searchUserDatabase(query) {
     fetch(`/searchUser`, {
@@ -106,12 +104,12 @@ function handleDeleteUser(userId) {
             // Show a success notification
             showNotification(data.message, 'success');
             
-            // Implement any additional logic or UI updates after successful deletion
+            
         } else if (data.error) {
             // Show an error notification
             showNotification(data.error, 'error');
         }
-        // Implement any additional logic or UI updates after successful deletion
+        
     })
     .catch(error => {
         console.error('Error:', error);
