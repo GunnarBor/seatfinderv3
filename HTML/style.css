@@ -142,9 +142,9 @@ html {
     margin-left: 400px;
     margin-top: -230px;
     margin-bottom: 100px;
-    height: 379px;
-    background-color: #8d8686;
-    color: rgb(0, 0, 0);
+    height: 375px;
+    background-color: #4a4a4a;
+    color: rgb(255, 255, 255);
     overflow: auto; /* Add scrollbars if content overflows */
   }
 
