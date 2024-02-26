@@ -102,10 +102,25 @@ function handleDeleteUser(userId) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
+        if (data.message) {
+            // Show a success notification
+            showNotification(data.message, 'success');
+            
+            // Implement any additional logic or UI updates after successful deletion
+        } else if (data.error) {
+            // Show an error notification
+            showNotification(data.error, 'error');
+        }
         // Implement any additional logic or UI updates after successful deletion
     })
     .catch(error => {
         console.error('Error:', error);
+        showNotification('Error Deleting User', 'error');
         // Implement error handling or display an error message
     });
+}
+
+function showNotification(message, type) {
+    
+    alert(`${type.toUpperCase()}: ${message}`);
 }
