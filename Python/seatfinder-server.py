@@ -17,7 +17,7 @@ def connect_to_database():
 
 @app.route('/')
 def main():
-    return send_file('..\HTML\home.html')
+    return send_file('../HTML/home.html')
 
 def check_credentials(username, password):
     conn = connect_to_database()

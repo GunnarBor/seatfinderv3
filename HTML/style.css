@@ -133,3 +133,18 @@ html {
     border-color: #c7c7c7; 
     transform: translateY(-2px);
   }
+
+  .searchResults{
+    border: 3px solid black;
+    padding: 5px;
+    margin-right: 25px;
+    margin-left: 400px;
+    margin-top: -230px;
+    margin-bottom: 100px;
+    background-color: #4a4a4a;
+    color: white;
+  }
+
+  .notify {
+    margin-right: 30px;
+  }

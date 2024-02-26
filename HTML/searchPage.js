@@ -38,6 +38,8 @@ function displaySearchResults(results) {
     console.log('Results received:', results); // Add this line for debugging
 
     const resultsDiv = document.getElementById('searchResults');
+    resultsDiv.innerHTML = '';
+    
     if (Array.isArray(results) && results.length > 0) {
         results.forEach(function(result) {
             const p = document.createElement('p');
