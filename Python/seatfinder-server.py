@@ -57,7 +57,7 @@ def insert_new_user(username, password, email, admin=0, degree=''):
     finally:
         if conn:
             conn.close()
-
+            
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
