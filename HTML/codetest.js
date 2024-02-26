@@ -31,7 +31,7 @@ fetch('/login', {
         if (data && data.isAdmin) {
             window.location.href = "/adminhome.html";
         } else {
-            window.location.href = "/userhome.html";
+            window.location.href = "/searchPage.html";
         }
     })
     .catch(error => {
