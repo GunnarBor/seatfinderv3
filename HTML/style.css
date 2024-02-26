@@ -104,6 +104,7 @@ html {
     background-color: #4a4a4a; 
     color: mintcream;
   }
+
   
   
   .button_left {
@@ -137,12 +138,14 @@ html {
   .searchResults{
     border: 3px solid black;
     padding: 5px;
-    margin-right: 25px;
+    margin-right: 0px;
     margin-left: 400px;
     margin-top: -230px;
     margin-bottom: 100px;
-    background-color: #4a4a4a;
-    color: white;
+    height: 379px;
+    background-color: #8d8686;
+    color: rgb(0, 0, 0);
+    overflow: auto; /* Add scrollbars if content overflows */
   }
 
   .notify {

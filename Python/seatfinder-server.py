@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, session,send_file, redirect, url_for
+from flask import Flask, request, jsonify, session, send_file, redirect, url_for
 import pymysql
 import pymysql.cursors
 
@@ -57,7 +57,7 @@ def insert_new_user(username, password, email, admin=0, degree=''):
     finally:
         if conn:
             conn.close()
-
+            
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
@@ -73,6 +73,25 @@ def search():
     finally:
         print(f"Final Results: {results}")
         return jsonify(results)
+
+@app.route('/searchUser', methods=['POST'])
+def search_user():
+    data = request.get_json()
+    query = data.get('query')
+    results = []
+
+    try:
+        with connect_to_database().cursor() as cursor:
+            sql = "SELECT * FROM users WHERE username LIKE %s"
+            cursor.execute(sql, ('%' + query + '%'))
+            results = cursor.fetchall()
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+
+    return jsonify(results)
+
 
 
 @app.route('/login', methods=['GET', 'POST'])
